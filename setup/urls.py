@@ -22,5 +22,5 @@ from todos.views import home, todo_list
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path("todo_list", todo_list)
+    path("tarefas", todo_list)
 ]
