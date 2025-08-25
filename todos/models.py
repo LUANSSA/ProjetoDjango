@@ -6,9 +6,9 @@ class Todo(models.Model):
     # Titulo da tarefa
     title = models.CharField(max_length=100, null=False, blank=False)
     # Data de criação
-    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    created_at = models.DateField(auto_now_add=True, null=False, blank=False)
     # Data de entrega
-    deadline = models.DateTimeField(null=False, blank=False)
+    deadline = models.DateField(null=False, blank=False)
     # Data de finalização
     finished_at = models.DateTimeField(null=True)
 
