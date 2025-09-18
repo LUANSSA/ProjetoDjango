@@ -38,9 +38,9 @@ Tarefas
                 <td>{{ todo.deadline }}</td>
                 <td>{{ todo.finished_at | default:"-" }}</td>
                 <td>
-                    <a href="#" class="btn btn-primary btn-sm">Concluir</a>
+                    <a href="/tarefas/concluir/{{todo.id}}" class="btn btn-primary btn-sm">Concluir</a>
                     <a href="/tarefas/alterar/{{todo.id}}" class="btn btn-success btn-sm">Editar</a>
-                    <a href="#" class="btn btn-danger btn-sm">Excluir</a>
+                    <a href="/tarefas/excluir/{{todo.id}}" class="btn btn-danger btn-sm">Excluir</a>
                 </td>
             </tr>
         {% endfor %}
