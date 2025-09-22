@@ -16,13 +16,42 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 
-from todos.views import ViewTodoList, home, ViewTodoCreate, ViewTodoUpdate
+from todos.views import ViewTodoList, home, ViewTodoCreate, ViewTodoUpdate, ViewTodoDelete, ViewTodoComplete
+
+# HTTP Resquest
+def PaginaTeste1(request):
+
+    pagina = '''
+        <h1>Olá Mundo</h1>
+        <ul>
+            <li>Home</li>
+            <li>Sobre</li>
+            <li>Contato</li>
+        </ul>
+    '''
+
+    # HTTP Response
+    return HttpResponse(pagina)
+
+def PaginaTeste2(request):
+
+    with open("teste.html", "r", encoding="utf-8") as item:
+        pagina = item.read()
+    
+    return HttpResponse(pagina)
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path("tarefas/", ViewTodoList.as_view()),
     path("tarefas/cadastrar/", ViewTodoCreate.as_view()),
-    path("tarefas/alterar/<int:pk>/", ViewTodoUpdate.as_view()),
+    path("tarefas/alterar/<int:pk>", ViewTodoUpdate.as_view()),
+    path("tarefas/excluir/<int:pk>", ViewTodoDelete.as_view()),
+    path("tarefas/concluir/<int:pk>", ViewTodoComplete.as_view()),
+    path("teste1/", PaginaTeste1),
+    path("teste2/", PaginaTeste2)
 ]
